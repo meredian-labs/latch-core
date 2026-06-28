@@ -1,0 +1,12 @@
+{
+  "name": "safe-package",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "example/safe-package",
+  "bin": {
+    "safe-package": "index.js"
+  },
+  "dependencies": {
+    "left-pad": "^1.3.0"
+  }
+}

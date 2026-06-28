@@ -1,0 +1,59 @@
+{
+  "name": "@latch/core",
+  "version": "0.1.0",
+  "description": "Shared audit, registry, tarball, scanner, risk, cache, policy, and report logic for Latch.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "demo": "npm run build && npm test",
+    "pack:dry-run": "npm pack --dry-run"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "docs",
+    "examples",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/meredian-labs/latchx.git",
+    "directory": "packages/core"
+  },
+  "keywords": [
+    "npm",
+    "security",
+    "supply-chain",
+    "package-audit",
+    "policy"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "semver": "^7.6.2",
+    "ssri": "^10.0.6",
+    "tar": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/semver": "^7.5.8",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "postinstall-package",
+  "version": "1.0.0",
+  "scripts": {
+    "preinstall": "node preinstall.js",
+    "install": "node install.js",
+    "postinstall": "node postinstall.js",
+    "prepare": "node prepare.js",
+    "prepublish": "node prepublish.js",
+    "prepublishOnly": "node prepublish-only.js",
+    "prepack": "node prepack.js",
+    "postpack": "node postpack.js"
+  }
+}

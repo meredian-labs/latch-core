@@ -1,0 +1,12 @@
+export { auditPackage } from "./auditPackage.js";
+export type { AuditPackageOptions } from "./auditPackage.js";
+export { formatHumanReport } from "./output/humanReport.js";
+export { runNpmExec } from "./runner/npmRunner.js";
+export { evaluatePolicy } from "./policy/evaluatePolicy.js";
+export { loadPolicy, DEFAULT_POLICY_FILE } from "./policy/loadPolicy.js";
+export { parsePackageSpec, encodePackageName, safePackageName } from "./registry/packageSpec.js";
+export { fetchNpmMetadata, DEFAULT_REGISTRY_URL } from "./registry/npmRegistryClient.js";
+export { resolveVersion, findPreviousVersion } from "./registry/resolveVersion.js";
+export type { LatchAuditReport, RiskFinding } from "./risk/riskTypes.js";
+export type { LatchPolicy, PolicyDecision } from "./policy/policyTypes.js";
+export type { NpmPackageMetadata, NpmVersionMetadata, NpmPerson } from "./registry/metadataTypes.js";

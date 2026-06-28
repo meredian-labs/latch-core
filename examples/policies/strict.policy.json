@@ -1,0 +1,12 @@
+{
+  "minScore": 85,
+  "denyCritical": true,
+  "denyHigh": true,
+  "denyLifecycleScripts": true,
+  "denyNewLifecycleScripts": true,
+  "denyLikelyObfuscation": true,
+  "denyIntegrityMissing": true,
+  "allowedRegistries": [
+    "https://registry.npmjs.org"
+  ]
+}
