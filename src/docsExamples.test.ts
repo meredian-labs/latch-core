@@ -5,7 +5,7 @@ describe("core documentation examples", () => {
   it("keeps core README release sections", async () => {
     const readme = await readFile("README.md", "utf8");
 
-    expect(readme).toContain("# @latch/core");
+    expect(readme).toContain("# latch-core");
     expect(readme).toContain("## What It Does");
     expect(readme).toContain("## Dogfooding");
     expect(readme).toContain("## Release");

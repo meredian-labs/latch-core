@@ -1,12 +1,12 @@
-# @latch/core
+# latch-core
 
-`@latch/core` is the shared audit, policy, scanner, risk, cache, and report engine used by Latch tools.
+`latch-core` is the shared audit, policy, scanner, risk, cache, and report engine used by Latch tools.
 
 It is intentionally publishable as its own package. `latchx` depends on it, but core should remain independently testable, demoable, documented, and releasable.
 
 ## What It Does
 
-`@latch/core` provides:
+`latch-core` provides:
 
 - npm package spec parsing
 - npm registry metadata resolution

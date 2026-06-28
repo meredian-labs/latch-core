@@ -1,6 +1,6 @@
 # Security Policy
 
-`@latch/core` is a preflight package risk engine. It does not prove that a package is safe or malicious.
+`latch-core` is a preflight package risk engine. It does not prove that a package is safe or malicious.
 
 ## Supported Versions
 

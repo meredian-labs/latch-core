@@ -1,4 +1,4 @@
-# @latch/core Dogfood Results
+# latch-core Dogfood Results
 
 | Area | Command/Test | Expected | Actual | Issue | Status |
 | --- | --- | --- | --- | --- | --- |

@@ -1,10 +1,10 @@
-# @latch/core v0.1 Release Checklist
+# latch-core v0.1 Release Checklist
 
 ## Metadata
 
 Verify `package.json` includes:
 
-- `name`: `@latch/core`
+- `name`: `latch-core`
 - `version`: `0.1.0`
 - `description`
 - `license`
@@ -38,4 +38,4 @@ Confirm the packed tarball includes:
 
 ## Publish Order
 
-Publish `@latch/core` before publishing `@latch/latchx`.
+Publish `latch-core` before publishing `latchx`.

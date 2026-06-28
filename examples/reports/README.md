@@ -1,4 +1,4 @@
-# @latch/core Report Examples
+# latch-core Report Examples
 
 Core does not expose a CLI. Reports are normally generated through `latchx` or another consumer.
 

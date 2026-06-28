@@ -1,4 +1,4 @@
-# Contributing To @latch/core
+# Contributing To latch-core
 
 Core is an independent primary package.
 
