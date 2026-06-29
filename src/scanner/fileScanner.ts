@@ -64,7 +64,7 @@ const binaryExtensions = new Set([
 ]);
 
 export async function scanPackageFiles(extractPath: string): Promise<ScanResult> {
-  const root = join(extractPath, "package");
+  const root = await findPackageRoot(extractPath);
   const files = await listFiles(root);
   const result: ScanResult = {
     scannedFiles: 0,
@@ -117,6 +117,33 @@ export async function scanPackageFiles(extractPath: string): Promise<ScanResult>
   }
 
   return result;
+}
+
+async function findPackageRoot(extractPath: string): Promise<string> {
+  const defaultRoot = join(extractPath, "package");
+  if (await canReadDirectory(defaultRoot)) {
+    return defaultRoot;
+  }
+
+  const entries = await readdir(extractPath, { withFileTypes: true });
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+
+    const root = join(extractPath, entry.name);
+    if (await canReadDirectory(root)) {
+      return root;
+    }
+  }
+
+  return defaultRoot;
+}
+
+async function canReadDirectory(path: string): Promise<boolean> {
+  return readdir(path)
+    .then(() => true)
+    .catch(() => false);
 }
 
 async function listFiles(directory: string): Promise<string[]> {

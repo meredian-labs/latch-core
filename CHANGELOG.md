@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3 - 2026-06-29
+
+- Fixed file scanning for tarballs whose root directory is not named `package`.
+
+## 0.1.2 - 2026-06-29
+
+- Fixed package analysis for tarballs whose root directory is not named `package`.
+
 ## 0.1.1 - 2026-06-29
 
 - Mapped thrown registry fetch failures to `REGISTRY_ERROR`.

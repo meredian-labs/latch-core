@@ -1,4 +1,7 @@
 import { describe, expect, it } from "vitest";
+import { mkdir, mkdtemp, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { scanPackageFiles } from "./fileScanner.js";
 
 describe("scanPackageFiles", () => {
@@ -34,5 +37,16 @@ describe("scanPackageFiles", () => {
 
     expect(scannedPatterns).not.toContain("node_modules/ignored/index.js");
     expect(scan.skippedFiles).toBeGreaterThan(0);
+  });
+
+  it("scans tarballs whose root directory is the package name", async () => {
+    const extractPath = await mkdtemp(join(tmpdir(), "latch-scan-named-root-"));
+    await mkdir(join(extractPath, "node"));
+    await writeFile(join(extractPath, "node", "index.js"), "const child_process = require('child_process');");
+
+    const scan = await scanPackageFiles(extractPath);
+
+    expect(scan.scannedFiles).toBe(1);
+    expect(scan.suspiciousPatterns.map((pattern) => pattern.file)).toContain("index.js");
   });
 });
