@@ -8,11 +8,19 @@ export async function fetchNpmMetadata(
   options: { registryUrl?: string } = {}
 ): Promise<NpmPackageMetadata> {
   const registryUrl = (options.registryUrl ?? DEFAULT_REGISTRY_URL).replace(/\/$/, "");
-  const response = await fetch(`${registryUrl}/${encodePackageName(packageName)}`, {
-    headers: {
-      accept: "application/json"
-    }
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${registryUrl}/${encodePackageName(packageName)}`, {
+      headers: {
+        accept: "application/json"
+      }
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw Object.assign(new Error(`Registry request failed: ${message}`), {
+      code: "REGISTRY_ERROR"
+    });
+  }
 
   if (response.status === 404) {
     throw Object.assign(new Error(`Package not found: ${packageName}`), { code: "PACKAGE_NOT_FOUND" });

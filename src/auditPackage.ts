@@ -22,7 +22,8 @@ import type { LatchAuditReport } from "./risk/riskTypes.js";
 import type { NpmVersionMetadata } from "./registry/metadataTypes.js";
 
 export type AuditPackageOptions = {
-  tool?: "latchx" | "core";
+  tool?: "latchx" | "latchpm" | "core";
+  action?: "audit" | "inspect" | "run" | "install";
   registryUrl?: string;
   noCache?: boolean;
 };
@@ -69,6 +70,7 @@ export async function auditPackage(spec: string, options: AuditPackageOptions = 
 
   const baseReport: Omit<LatchAuditReport, "risk" | "decision"> = {
     tool: options.tool ?? "core",
+    action: options.action ?? "audit",
     generatedAt: new Date().toISOString(),
     registry: {
       url: registryUrl

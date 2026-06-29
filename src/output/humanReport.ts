@@ -2,7 +2,7 @@ import type { LatchAuditReport } from "../risk/riskTypes.js";
 
 export function formatHumanReport(report: LatchAuditReport): string {
   const lines: string[] = [];
-  lines.push("LatchX Preflight Report");
+  lines.push(formatReportTitle(report));
   lines.push("");
   section(lines, "Package", [
     `Name: ${report.package.name}`,
@@ -53,6 +53,22 @@ export function formatHumanReport(report: LatchAuditReport): string {
   section(lines, "Decision", [`Recommendation: ${report.decision.recommended}`, report.decision.reason]);
 
   return lines.join("\n");
+}
+
+function formatReportTitle(report: LatchAuditReport): string {
+  if (report.tool === "latchpm" && report.action === "install") {
+    return "LatchPM Pre-Install Report";
+  }
+
+  if (report.tool === "latchpm") {
+    return "LatchPM Preflight Report";
+  }
+
+  if (report.tool === "core") {
+    return "Latch Preflight Report";
+  }
+
+  return "LatchX Preflight Report";
 }
 
 function section(lines: string[], title: string, body: string[]): void {

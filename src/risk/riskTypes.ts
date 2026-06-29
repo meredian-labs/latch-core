@@ -20,7 +20,8 @@ export type RiskFinding = {
 };
 
 export type LatchAuditReport = {
-  tool: "latchx" | "core";
+  tool: "latchx" | "latchpm" | "core";
+  action: "audit" | "inspect" | "run" | "install";
   generatedAt: string;
   registry: {
     url: string;

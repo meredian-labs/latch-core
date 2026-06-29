@@ -1,6 +1,6 @@
 {
   "name": "latch-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared audit, registry, tarball, scanner, risk, cache, policy, and report logic for Latch.",
   "type": "module",
   "main": "dist/index.js",
